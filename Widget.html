@@ -1,0 +1,701 @@
+<html>
+<head>
+  <link href="css/main.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script src="js/swipes.js"></script>
+  <script src="js/date.js"></script>
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/jquery-3.1.1.min.js"></script>
+</head>
+  <body>
+    <div id="background" class="blur"></div>
+    <div id="mainElement">
+      <div id="topSection">
+        <div id="hours">10</div><div id="minutes">34</div>
+        <div id="dateWrapper">
+          <div id="day">FRI </div><div id="date">21</div><div id="month">FEB</div>
+        </div>
+      </div>
+      <div id="lineWrapper">
+        <HR COLOR="white" SIZE="1" WIDTH="80%">
+      </div>
+      <div id="middleSection">
+        <div id="weather" class="hide">
+          <div id="wxLeft">
+            <center><img id ="wxIcon" src="images/wx/34.svg"></center>
+          </div>
+          <div id="wxRight">
+            <div id="wxTemp">75&deg &mdash;</div><div id="wxCondition">&nbsp;Sunny</div>
+
+            <div id="wxLocation">New York</div>
+
+            <section id="wxWrapper" class="hide">
+
+              <!-- display next three days -->
+              <div id="dayZero" style="margin-top:0;">
+                <center>
+                <p id="dayZeroDayString">Sat</p>
+                <img id="dayZeroImg" src="images/wx/23.svg"/>
+                <p style="width: 50px; text-align:center;"><span id="dayZeroHigh">34</span>&nbsp;<span id="dayZeroLow" style="color:#bfbfbf;">17</span></p>
+                </center>
+              </div>
+              <div id="dayOne" style="margin-top:0;">
+                <center>
+                <p id="dayOneDayString">Sun</p>
+                <img id="dayOneImg" src="images/wx/3.svg"/>
+                <p style="width: 50px; text-align:center;"><span id="dayOneHigh">36</span>&nbsp;<span id="dayOneLow" style="color:#bfbfbf;">9</span></p>
+                </center>
+              </div>
+
+              <div id="dayTwo" style="margin-top:0;">
+                <center>
+                <p id="dayTwoDayString">Mon</p>
+                <img id="dayTwoImg" src="images/wx/34.svg"/>
+                <p style="width: 50px; text-align:center;"><span id="dayTwoHigh">45</span>&nbsp;<span id="dayTwoLow" style="color:#bfbfbf;">34</span></p>
+                </center>
+              </div>
+
+              <div id="dayThree" style="margin-top:0;">
+                <center>
+                <p id="dayThreeDayString">Tue</p>
+                <img id="dayThreeImg" src="images/wx/34.svg"/>
+                <p style="width: 50px; text-align:center;"><span id="dayThreeHigh">23</span>&nbsp;<span id="dayThreeLow" style="color:#bfbfbf;">23</span></p>
+                </center>
+              </div>
+
+              <div id="dayFour" style="margin-top:0;">
+                <center>
+                <p id="dayFourDayString">Wed</p>
+                <img id="dayFourImg" src="images/wx/34.svg"/>
+                <p style="width: 50px; text-align:center;"><span id="dayFourHigh">44</span>&nbsp;<span id="dayFourLow" style="color:#bfbfbf;">31</span></p>
+                </center>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div id="agenda" class="hide">
+          <div class="buffer"></div>
+          <div id="agendaLeft">
+            <center><img id ="agendaIcon" src="images/icons/calendar.svg"></center>
+          </div>
+
+          <div id="agendaRight">
+
+            <div id="eventscontainer">
+
+              <div id="eventOne" class="event">
+                <p id="eventOneTitle" class="title">Doctor Who</p>
+                <p id="eventOneTime" class="time">12:00pm</p>
+              </div>
+
+              <div id="agendaWrapper" class="hide">
+
+                <div id="eventTwo" class="event">
+                  <p id="eventTwoTitle" class="title" style="margin-top:10px;">Kryptonite Challenge</p>
+                  <p id="eventTwoTime" class="time">1:00pm</p>
+                </div>
+
+                <div id="eventThree" class="event">
+                  <p id="eventThreeTitle" class="title" style="margin-top:10px;"></p>
+                  <p id="eventThreeTime" class="time"></p>
+                </div>
+
+                <div id="eventFour" class="event">
+                  <p id="eventFourTitle" class="title" style="margin-top:10px;"></p>
+                  <p id="eventFourTime" class="time"></p>
+                </div>
+
+                <div id="eventFive" class="event">
+                  <p id="eventFiveTitle" class="title" style="margin-top:10px;"></p>
+                  <p id="eventFiveTime" class="time"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="phone" class="hide">
+          <div class="buffer"></div>
+          <div id="phoneLeft">
+            <center><div id="phoneIcon"><img src="images/icons/phone.svg"></div></center>
+          </div>
+          <div id="phoneRight">
+            <div id="phoneCount">3 unread</div>
+          </div>
+        </div>
+
+        <div id="sms" class="hide">
+          <div class="buffer"></div>
+          <div id="smsLeft">
+            <center><div id="smsIcon"><img src="images/icons/sms.svg"></div></center>
+          </div>
+          <div id="smsRight">
+            <div id="smsCount">3 unread</div>
+          </div>
+        </div>
+
+        <div id="mail" class="hide">
+          <div class="buffer"></div>
+          <div id="mailLeft">
+            <center><div id="mailIcon"><img src="images/icons/mail.svg"></div></center>
+          </div>
+          <div id="mailRight">
+            <div id="mailCount">3 unread</div>
+          </div>
+        </div>
+
+        <div id="facebook" class="hide">
+          <div class="buffer"></div>
+          <div id="facebookLeft">
+            <center><div id="facebookIcon"><img src="images/icons/facebook.svg"></div></center>
+          </div>
+          <div id="facebookRight">
+            <div id="facebookCount">3 unread</div>
+          </div>
+        </div>
+
+        <div id="twitter" class="hide">
+          <div class="buffer"></div>
+          <div id="twitterLeft">
+            <center><div id="twitterIcon"><img src="images/icons/twitter.svg"></div></center>
+          </div>
+          <div id="twitterRight">
+            <div id="twitterCount">3 unread</div>
+          </div>
+        </div>
+
+        <div id="battery" class="hide">
+          <div class="buffer"></div>
+          <div id="batteryLeft">
+            <center><img id ="batteryIcon" src="images/battery/battery-2.svg"></center>
+          </div>
+          <div id="batteryRight">
+            <div id="batteryPercent">75%</div>
+            <div id="batteryCharging">Charging</div>
+          </div>
+        </div>
+
+        <div id="disk" class="hide">
+          <div class="buffer"></div>
+          <div id="diskLeft">
+            <center><img id ="diskIcon" src="images/icons/disk.svg"></center>
+          </div>
+          <div id="diskRight">
+            <div id="diskFree">75%</div>
+            <div id="diskSpace">Charging</div>
+          </div>
+        </div>
+
+        <div id="memory" class="hide">
+          <div class="buffer"></div>
+          <div id="memoryLeft">
+            <center><img id ="memoryIcon" src="images/icons/memory.svg"></center>
+          </div>
+          <div id="memoryRight">
+            <div id="memoryFree">75%</div>
+            <div id="memoryTotal">Charging</div>
+          </div>
+        </div>
+
+        <div id="network" class="hide">
+          <div class="buffer"></div>
+          <div id="networkLeft">
+            <center><img id ="networkIcon" src="images/icons/network.svg"></center>
+          </div>
+          <div id="networkRight">
+            <div id="networkInfo">75%</div>
+            <div id="networkSpeed">
+              <img src="images/icons/up-arrow.svg"><div id="upload">35kb/s</div>
+              <img src="images/icons/down-arrow.svg"><div id="download">2.4Mb/s</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pedometer" class="hide">
+          <div class="buffer"></div>
+          <div id="pedometerLeft">
+            <center><img id ="pedometerIcon" src="images/icons/pedometer.svg"></center>
+          </div>
+          <div id="pedometerRight">
+            <div id="pedometerSteps">75%</div>
+            <div id="pedometerDistance">Charging</div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <div id="bottomSection"><center><img id ="lockIcon" src="images/icons/lock.svg"></center></div>
+    </div>
+
+    <script type="text/cycript">
+      //<![CDATA[
+      var widgetIdentifier = "com.gaitherstephens.johnnyqpublic";
+      var wxWrapperVisible, agendaWrapperVisible = false;
+      var wxRefresh = 15;
+      var mailApp = "mail";
+      var calendarApp = "calendar";
+      var weatherApp = "weather";
+
+      // Setup of widget
+
+      function openApp(bundle){
+          [[UIApplication sharedApplication] launchApplicationWithIdentifier:@""+bundle suspended:NO];
+      }
+
+      window.onload = function() {
+        if(weatherEnabled){document.getElementById("weather").className = "show";}
+        if(agendaEnabled){document.getElementById("agenda").className = "show";}
+        if(batteryEnabled){document.getElementById("battery").className = "show";}
+        if(networkEnabled){document.getElementById("network").className = "show";}
+        if(pedometerEnabled){document.getElementById("pedometer").className = "show";}
+        if(diskEnabled){document.getElementById("disk").className = "show";}
+        if(memoryEnabled){document.getElementById("memory").className = "show";}
+        if(notificationsEnabled){document.getElementById("phone").className = "show"};
+        if(notificationsEnabled){document.getElementById("sms").className = "show"};
+        if(notificationsEnabled){document.getElementById("mail").className = "show"};
+        if(notificationsEnabled){document.getElementById("facebook").className = "show"};
+        if(notificationsEnabled){document.getElementById("twitter").className = "show"};
+
+        updateStats();
+
+        if(agendaEnabled){
+          // Code to run after calendar data updates.
+          [IS2Calendar registerForCalendarNotificationsWithIdentifier:widgetIdentifier andCallback:^ void () {
+            // Update onscreen elements
+            updateCalendarData();
+          }];
+          updateCalendarData();
+        }
+
+        if(weatherEnabled){
+          [IS2Weather registerForWeatherUpdatesWithIdentifier:widgetIdentifier andCallback:^ void () {
+            updateWx();
+          }];
+          [IS2Weather setWeatherUpdateTimeInterval:wxRefresh forRequester:widgetIdentifier];
+        }
+
+        if(pedometerEnabled){
+          [IS2Pedometer registerForPedometerNotificationsWithIdentifier:widgetIdentifier andCallback:^ void () {
+            updatePedometer();
+          }];
+          updatePedometer();
+        }
+
+        [IS2Notifications registerForBulletinNotificationsWithIdentifier:widgetIdentifier andCallback:^ void () {
+            updateNotifications();
+        }];
+        updateNotifications();
+      }
+
+      // Make sure to de-register ourselves when removed from the user's screen.
+      window.onunload = function() {
+        if(weatherEnabled){
+          [IS2Weather unregisterForUpdatesWithIdentifier:widgetIdentifier];
+          [IS2Weather removeRequesterForWeatherTimeInterval:widgetIdentifier];
+        }
+
+        [IS2Notifications unregisterForNotificationsWithIdentifier:widgetIdentifier];
+        if(pedometerEnabled){
+          [IS2Pedometer + unregisterForNotificationsWithIdentifier:widgetIdentifier];
+        }
+        return null;
+      };
+
+      function updateWx() {
+
+        var dayArray = JSON.parse("" + [IS2Weather dayForecastsForCurrentLocationJSON]);
+
+        document.getElementById("wxIcon").src = "images/wx/" + [IS2Weather currentCondition] + ".svg";
+        document.getElementById("wxTemp").innerHTML = [IS2Weather currentTemperature] + "&deg";
+        document.getElementById("wxCondition").innerHTML = "&mdash;&nbsp;" + [IS2Weather currentConditionAsString];
+        document.getElementById("wxLocation").innerHTML = [IS2Weather currentLocation] + ", " + [IS2Location stateForCurrentLocation];
+
+        //populates forecast elements
+        document.getElementById('dayZeroDayString').innerHTML = translate[current].sday[dayArray[1].dayOfWeek - 1];
+        document.getElementById('dayZeroImg').src = "images/wx/" + dayArray[1].condition + ".svg";
+        document.getElementById('dayZeroHigh').innerHTML = "" + dayArray[1].high + "&deg";
+        document.getElementById('dayZeroLow').innerHTML = "" + dayArray[1].low + "&deg";
+
+        document.getElementById('dayOneDayString').innerHTML = translate[current].sday[dayArray[2].dayOfWeek - 1];
+        document.getElementById('dayOneImg').src = "images/wx/" + dayArray[2].condition + ".svg";
+        document.getElementById('dayOneHigh').innerHTML = "" + dayArray[2].high + "&deg";
+        document.getElementById('dayOneLow').innerHTML = "" + dayArray[2].low + "&deg";
+
+        document.getElementById('dayTwoDayString').innerHTML = translate[current].sday[dayArray[3].dayOfWeek - 1];
+        document.getElementById('dayTwoImg').src = "images/wx/" + dayArray[3].condition + ".svg";
+        document.getElementById('dayTwoHigh').innerHTML = "" + dayArray[3].high + "&deg";
+        document.getElementById('dayTwoLow').innerHTML = "" + dayArray[3].low + "&deg";
+
+        document.getElementById('dayThreeDayString').innerHTML = translate[current].sday[dayArray[4].dayOfWeek - 1];
+        document.getElementById('dayThreeImg').src = "images/wx/" + dayArray[4].condition + ".svg";
+        document.getElementById('dayThreeHigh').innerHTML = "" + dayArray[4].high + "&deg";
+        document.getElementById('dayThreeLow').innerHTML = "" + dayArray[4].low + "&deg";
+
+        document.getElementById('dayFourDayString').innerHTML = translate[current].sday[dayArray[5].dayOfWeek - 1];
+        document.getElementById('dayFourImg').src = "images/wx/" + dayArray[5].condition + ".svg";
+        document.getElementById('dayFourHigh').innerHTML = "" + dayArray[5].high + "&deg";
+        document.getElementById('dayFourLow').innerHTML = "" + dayArray[5].low + "&deg";
+      }
+
+      function updateNotifications() {
+
+        if ([IS2Notifications notificationCountForApplication:getBundleId("phone")] === 0){
+          document.getElementById("phone").className = "hide";
+        }else {
+          document.getElementById("phoneCount").innerHTML = [IS2Notifications notificationCountForApplication:getBundleId("phone")] + " missed/voice";
+        }
+
+        if ([IS2Notifications notificationCountForApplication:getBundleId("sms")] === 0){
+          document.getElementById("sms").className = "hide";
+        }else {
+          document.getElementById("smsCount").innerHTML = [IS2Notifications notificationCountForApplication:getBundleId("sms")] + " messages";
+        }
+
+        if ([IS2Notifications notificationCountForApplication:getBundleId(mailApp)] === 0){
+          document.getElementById("mail").className = "hide";
+        }else {
+          document.getElementById("mailCount").innerHTML = [IS2Notifications notificationCountForApplication:getBundleId(mailApp)] + " unread";
+        }
+        if ([IS2Notifications notificationCountForApplication:getBundleId("facebook")] === 0){
+          document.getElementById("facebook").className = "hide";
+        }else {
+          document.getElementById("facebookCount").innerHTML = [IS2Notifications notificationCountForApplication:getBundleId("facebook")] + " notifications";
+        }
+
+        if ([IS2Notifications notificationCountForApplication:getBundleId("twitter")] === 0){
+          document.getElementById("twitter").className = "hide";
+        }else {
+          document.getElementById("twitterCount").innerHTML = [IS2Notifications notificationCountForApplication:getBundleId("twitter")] + " notifications";
+        }
+      }
+
+      function updatePedometer() {
+        document.getElementById("pedometerSteps").innerHTML = [IS2Pedometer numberOfSteps] + " steps";
+        document.getElementById("pedometerDistance").innerHTML = [IS2Pedometer distanceTravelled].toFixed(2) + "m";
+      }
+
+      var ampm;
+
+      // gets date info
+      var now = new Date();
+      var today = now.toDateString();
+      var time = now.toLocaleTimeString();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      var milliseconds = now.getMilliseconds();
+      var newSeconds = seconds+ (milliseconds/1000);
+
+      function convertHours(h){
+        if(twentyfourhour){
+          return h;
+        }else{
+          return ((h + 11) % 12 + 1);
+        }
+      }
+
+      function hideAllAvailableEvents() {
+        for (i = 0; i < 5; i++) {
+          document.getElementById(elementIdForNumber(i) + 'Title').innerHTML = "";
+          document.getElementById(elementIdForNumber(i) + 'Time').innerHTML = "";
+        }
+      }
+
+      function elementIdForNumber(x) {
+        switch (x) {
+          case 0:
+            return "eventOne";
+          case 1:
+            return "eventTwo";
+          case 2:
+            return "eventThree";
+          case 3:
+            return "eventFour";
+          case 4:
+            return "eventFive";
+          default:
+            return "";
+        }
+      }
+
+      function timeValueCorrection(value) {
+         if (value < 10) {
+              return "0" + value;
+         } else {
+              return value;
+         }
+      }
+
+      function timeToDayName(time) {
+          var dayNumber = time.getDay();
+          var today = new Date();
+          var tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000));
+
+          if (dayNumber == today.getDay()) {
+                return "Today";
+          } else if (dayNumber == tomorrow.getDay()) {
+                return "Tomorrow";
+          }
+
+          switch(dayNumber) {
+              case 0:
+                return "Sunday";
+              case 1:
+                return "Monday";
+              case 2:
+                return "Tuesday";
+              case 3:
+                return "Wednesday";
+              case 4:
+                return "Thursday";
+              case 5:
+                return "Friday";
+              case 6:
+                return "Saturday";
+              default:
+                return "";
+            }
+      }
+        function timerFiredEventDidEnd() {
+          updateCalendarData();
+
+          // The above will also handle resetting the timer for an event's end.
+      }
+
+      function formatHours(hours) {
+        if(hours >= 12){
+        ampm = "p";
+        }else{
+        ampm = "a";
+          }
+        hours = (hours + 11) % 12 + 1;
+        return hours;
+          // The above will also handle resetting the timer for an event's end.
+      }
+
+      function updateCalendarData() {
+        // First, grab the data between right now and in 7 days' time.
+        var timeNow = new Date();
+        var timeInWeek = timeNow.getTime() + (7 * 24 * 60 * 60 * 1000);
+
+        var firstEndTime = 0;
+
+      var eventsArray = JSON.parse("" + [IS2Calendar calendarEntriesJSONBetweenStartTimeAsTimestamp:timeNow.getTime() andEndTimeAsTimestamp:timeInWeek]);
+
+        if (eventsArray.length > 0) {
+          document.getElementById("agenda").className = "show";
+
+          // Initially, hide all the available events we can show.
+          hideAllAvailableEvents();
+
+          // Go over events available.
+          for (i = 0; i < eventsArray.length; i++) {
+            var event = eventsArray[i];
+
+            // Update title
+            document.getElementById(elementIdForNumber(i) + 'Title').innerHTML = event.title;
+
+            if (event.allDay == 0) {
+              // Work out date display.
+              var timeStart = new Date(event.startTimeTimestamp);
+              var timeEnd = new Date(event.endTimeTimestamp);
+
+              if (timeStart.getDay() == timeEnd.getDay()) {
+                  // Event is all on the same day, huzzah.
+                  var timeString = "" + timeToDayName(timeStart) + ": " + formatHours(timeStart.getHours()) + ":" + timeValueCorrection(timeStart.getMinutes()) + ampm;
+                  timeString += " to " + formatHours(timeEnd.getHours()) + ":" + timeValueCorrection(timeEnd.getMinutes()) + ampm;
+
+                  document.getElementById(elementIdForNumber(i) + 'Time').innerHTML = timeString;
+              } else {
+                    // Event goes over multiple days...
+                    var timeString = "" + timeToDayName(timeStart) + ", " + formatHours(timeStart.getHours()) + ":" + timeValueCorrection(timeStart.getMinutes()) + ampm;
+                    timeString += " to " + timeToDayName(timeEnd) + ", " + formatHours(timeEnd.getHours()) + ":" + timeValueCorrection(timeEnd.getMinutes()) + ampm;
+                    document.getElementById(elementIdForNumber(i) + 'Time').innerHTML = timeString;
+              }
+            } else {
+              var timeStart = new Date(event.startTimeTimestamp);
+              document.getElementById(elementIdForNumber(i) + 'Time').innerHTML = timeToDayName(timeStart) + ": all day";
+            }
+
+            // handle end times for timer.
+            if (firstEndTime == 0 || event.endTimeTimestamp < firstEndTime) {
+              firstEndTime = event.endTimeTimestamp;
+            }
+
+            if (i == 4) {
+              // Can't display more than 5 upcoming events!
+              break;
+            }
+          }
+         } else {
+              // Just display that there's no events.
+            document.getElementById("agenda").className = "hide";
+         }
+
+          // Also, ensure we refresh when the first end time is reached of events.
+          // Setting timeout is in milliseconds, and both timeNow and firstEndTime are too.
+
+          if (firstEndTime == 0) {
+            // Setup a time for the next midnight instead.
+             timeNow.setDate(timeNow.getDate()+1);
+             firstEndTime = timeNow.getTime();
+          }
+
+          setTimeout(timerFiredEventDidEnd, firstEndTime - timeNow);
+      }
+
+      function updateStats() {
+        now = new Date();
+        today = now.toDateString();
+        time = now.toLocaleTimeString();
+        hours = now.getHours();
+        minutes = now.getMinutes();
+        document.getElementById('hours').innerHTML = convertHours(hours);
+        document.getElementById('minutes').innerHTML = timeValueCorrection(minutes);
+        document.getElementById('day').innerHTML = translate[current].sday[now.getDay()];
+        document.getElementById('date').innerHTML = now.getDate();
+        document.getElementById('month').innerHTML = translate[current].smonth[now.getMonth()];
+
+        if(batteryEnabled){
+          var isCharging = [IS2System batteryStateAsInteger];
+          var percent = [IS2System batteryPercent];
+          if(isCharging === 1){
+            document.getElementById("batteryCharging").innerHTML = "Discharging";
+            document.getElementById("batteryIcon").src = "images/battery/battery-"+getNum(percent)+".svg";
+          }else {
+            document.getElementById("batteryCharging").innerHTML = "Charging";
+            document.getElementById("batteryIcon").src = "images/battery/batteryC-"+getNum(percent)+".svg";
+          }
+
+          document.getElementById("batteryPercent").innerHTML = percent + "%";
+        }
+
+        if(networkEnabled){
+          if([IS2Telephony wifiName] === "" || [IS2Telephony wifiName] === NULL){
+            document.getElementById("networkIcon").src = "images/icons/cellular.svg";
+            document.getElementById("networkInfo").innerHTML = [IS2Telephony phoneCarrier];
+          }else{
+            document.getElementById("networkIcon").src = "images/icons/wifi.svg";
+            document.getElementById("networkInfo").innerHTML = [IS2Telephony wifiName];
+          }
+          document.getElementById("upload").innerHTML = [IS2System networkSpeedUpAutoConverted];
+          document.getElementById("download").innerHTML = [IS2System networkSpeedDownAutoConverted];
+        }
+
+        if(diskEnabled){
+          document.getElementById("diskFree").innerHTML = ((([IS2System totalDiskSpaceInFormat:3] - [IS2System freeDiskSpaceInFormat:3]) / [IS2System totalDiskSpaceInFormat:3]) * 100).toFixed() + "% free space";
+          document.getElementById("diskSpace").innerHTML = "Internal: " + [IS2System freeDiskSpaceInFormat:3].toFixed() + "GB of " + [IS2System totalDiskSpaceInFormat:3].toFixed() + "GB free";
+        }
+
+        if(memoryEnabled){
+          document.getElementById("memoryFree").innerHTML = (([IS2System ramAvailable] / ([IS2System ramFree]+[IS2System ramUsed]))*100).toFixed()+ "% free memory";
+          document.getElementById("memoryTotal").innerHTML = "Available: " + [IS2System ramUsed] + "MB used of " + ([IS2System ramUsed] + [IS2System ramFree]) + "MB";
+        }
+
+        setTimeout(updateStats, 1000);
+      }
+
+
+      var swipeWxLeft = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            openApp(getBundleId(weatherApp));
+          }
+        }
+      };
+      var swipeWxRight = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            if(wxWrapperVisible){
+              wxWrapperVisible = false;
+              document.getElementById("wxWrapper").className = "hide";
+            }else{
+              wxWrapperVisible = true;
+              document.getElementById("wxWrapper").className = "show";
+            }
+          }
+        }
+      };
+      var swipePhone = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            openApp(getBundleId("phone"));
+          }
+        }
+      };
+      var swipeSms = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            openApp(getBundleId("sms"));
+          }
+        }
+      };
+      var swipeMail = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            openApp(getBundleId(mailApp));
+          }
+        }
+      };
+      var swipeFacebook = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            openApp(getBundleId("facebook"));
+          }
+        }
+      };
+      var swipeTwitter = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            openApp(getBundleId("twitter"));
+          }
+        }
+      };
+      var swipeAgendaLeft = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            openApp(getBundleId(calendarApp));
+          }
+        }
+      };
+      var swipeAgendaRight = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            if(agendaWrapperVisible){
+              agendaWrapperVisible = false;
+              document.getElementById("agendaWrapper").className = "hide";
+            }else{
+              agendaWrapperVisible = true;
+              document.getElementById("agendaWrapper").className = "show";
+            }
+          }
+        }
+      };
+      var swipeLockIcon = {
+        itemSwipe: function(direction){
+          if(direction === 'p'){
+            [[SBLockScreenManager sharedInstance] unlockUIFromSource:0 withOptions:nil];
+          }
+        }
+      };
+
+      //adds swipe detection to element
+      detectswipe('#wxLeft', swipeWxLeft.itemSwipe);
+      detectswipe('#wxRight', swipeWxRight.itemSwipe);
+      detectswipe('#phone', swipePhone.itemSwipe);
+      detectswipe('#sms', swipeSms.itemSwipe);
+      detectswipe('#mail', swipeMail.itemSwipe);
+      detectswipe('#facebook', swipeFacebook.itemSwipe);
+      detectswipe('#twitter', swipeTwitter.itemSwipe);
+      detectswipe('#agendaLeft', swipeAgendaLeft.itemSwipe);
+      detectswipe('#agendaRight', swipeAgendaRight.itemSwipe);
+      detectswipe('#lockIcon', swipeLockIcon.itemSwipe);
+
+      //]]>
+    </script>
+  </body>
+</html>

@@ -1,0 +1,332 @@
+@media screen and (min-device-width : 350px) and (max-device-width : 400px){
+  body{
+    -webkit-transform:scale(0.906);
+    -webkit-transform-origin: top left;
+  }
+}
+
+@media screen and (min-device-width : 300px) and (max-device-width : 349px){
+  body{
+    -webkit-transform:scale(0.77299);
+    -webkit-transform-origin: top left;
+  }
+}
+@font-face {
+  font-family:"roboto-reg";
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family:"roboto-bold";
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family:"roboto-light";
+  src: url(../fonts/Roboto-Light.ttf);
+}
+@font-face {
+  font-family:"roboto-thin";
+  src: url(../fonts/Roboto-Thin.ttf);
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.visible {
+  display:block!important;
+}
+
+.hidden {
+  display: none!important;
+}
+
+.content-container {
+  width: 100%;
+  height: 736px;
+  position: relative;
+  overflow: hidden;
+
+  /* Enable GPU Rendering */
+  transform: translateZ(0);
+}
+
+.blur {
+  /* All the background image supports */
+  transform: translate(0px, 0px, 0px);
+  background-image: linear-gradient(to top right, rgba(43, 40, 50, 0.4) 0%, rgba(83, 86, 99, 0.4) 45%, rgba(69, 77, 91, 0.4) 60%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  /* blur filters */
+  filter: blur(20px);
+
+  /* positioning and removing edges */
+  top: -70px;
+  right: -70px;
+  left: -70px;
+  padding: 70px;
+}
+
+.blur:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1001;
+
+  /* Setting the gradient. Adds depth, and glass like effect. */
+  background-image: linear-gradient(-19deg, rgba(43,40,50,0.4) 0%, rgba(43,40,50,0.4) 46%, rgba(0,0,0,0.05) 50%);
+
+  /* Blur to add depth. High to create smooth transition */
+  filter: blur(70px);
+}
+
+.hide {
+  height: auto;
+  max-height: 0;
+  transition: max-height .5s ease-out;
+  overflow: hidden;
+}
+.show {
+  height: auto;
+	max-height: 500px;
+  transition: max-height 1s ease-in;
+}
+
+#background {
+  width: 414px;
+  position: absolute;
+  /* Enable GPU Rendering */
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+#mainElement {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 414px;
+  height: 736px;
+  color: white;
+}
+
+#topSection {
+  position: relative;
+  float: left;
+  left: 30px;
+  height: 150px;
+  margin-top: 40px;
+}
+
+#middleSection {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height:500px;
+}
+
+#bottomSection {
+  height: 48px;
+}
+
+#lockIcon {
+  height: 30px;
+}
+
+#hours {
+  float: left;
+  font-family: "roboto-reg";
+  font-size: 90px;
+  left: 30px;
+}
+
+#minutes {
+  float: left;
+  font-family: "roboto-thin";
+  font-size: 90px;
+}
+
+#dateWrapper {
+  position: relative;
+  top: -12px;
+}
+
+#day {
+  position: relative;
+  float: right;
+  font-family: "roboto-light";
+  font-size: 22px;
+  margin-right: 5px;
+  text-align: right;
+}
+
+#date {
+  position: relative;
+  float: right;
+  font-family: "roboto-bold";
+  font-size: 22px;
+  margin-right: 5px;
+  text-align: right;
+}
+
+#month {
+  position: relative;
+  float: right;
+  font-family: "roboto-light";
+  font-size: 22px;
+  margin-right: 5px;
+  text-align: right;
+}
+
+#lineWrapper {
+  position: relative;
+  top: -15px;
+}
+
+#wxWrapper{
+  height: 90px;
+  clear:left;
+  overflow: hidden;
+}
+
+#wxWrapper p {
+  margin: 1px;
+  font-family: "roboto-light";
+  font-size:16px
+}
+
+#wxWrapper img {
+  width:30px;
+}
+
+#wxWrapper div {
+  position: relative;
+  top:10px;
+  left:0px;
+  float:left;
+  width:60px;
+}
+
+.buffer {
+  height: 20px;
+}
+
+#weather, #agenda, #phone, #sms, #mail, #facebook, #twitter, #battery, #network,
+#pedometer, #disk, #memory {
+  position: relative;
+  display: inline-block;
+  left: 30px;
+}
+
+#wxLeft, #agendaLeft, #phoneLeft, #smsLeft, #mailLeft, #facebookLeft, #twitterLeft,
+#batteryLeft, #networkLeft, #pedometerLeft, #diskLeft, #memoryLeft {
+  float: left;
+  width: 50px;
+  margin-right: 10px;
+}
+
+#wxLeft img, #agendaLeft img, #phoneLeft img, #smsLeft img, #mailLeft img, #facebookLeft img,
+#twitterLeft img, #batteryLeft img, #networkLeft img, #pedometerLeft img, #diskLeft img,
+#memoryLeft img {
+  height: 30px;
+}
+
+#wxRight, #agendaRight, #phoneRight, #smsRight, #mailRight, #facebookRight, #twitterRight,
+#batteryRight, #networkRight, #pedometerRight, #diskRight, #memoryRight {
+  float: left;
+}
+
+#wxTemp, #wxCondition {
+  float: left;
+  font-family: "roboto-light";
+  font-size: 24px;
+}
+
+#phoneCount, #smsCount, #mailCount, #facebookCount, #twitterCount {
+  float: left;
+  font-family: "roboto-light";
+  width: 250px;
+  font-size: 24px;
+  clear: right;
+}
+
+#batteryPercent, #networkInfo, #pedometerSteps, #diskFree, #memoryFree {
+  float: left;
+  font-family: "roboto-light";
+  font-size: 24px;
+  clear:left;
+}
+
+#upload, #download {
+  float: left;
+  margin-right: 10px;
+  width: 100px;
+}
+
+#wxLocation, #batteryCharging, #networkSpeed, #pedometerDistance, #diskSpace,
+#memoryTotal {
+  float: left;
+  font-family: "roboto-light";
+  color: lightgray;
+  font-size: 20px;
+  width: 320px;
+  clear:left;
+}
+
+#networkSpeed img {
+  float: left;
+  height: 18px;
+}
+
+#agendaWrapper {
+  margin: 0px;
+  padding: 0px;
+}
+
+#eventsContainer {
+  position: relative;
+}
+
+#agendaSection{
+  height: auto;
+  clear:left;
+  overflow: hidden;
+}
+
+.event {
+  position: relative;
+  top: -2px;
+}
+
+p {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0px;
+  margin: 0px;
+}
+
+.title {
+  float: left;
+  font-family: "roboto-light";
+  font-size: 24px;
+  width: 320px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.time {
+  float: left;
+  font-family: "roboto-light";
+  color: lightgray;
+  font-size: 20px;
+  width: 320px;
+  clear:left;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
